@@ -9,16 +9,12 @@ const PostPage = ({ post }) => {
 };
 
 export function getStaticPaths() {
-  const postsPaths = getPostsPaths();
-
-  const pathParams = postsPaths.map((path) => ({
-    params: {
-      slug: path,
-    },
-  }));
-
   return {
-    paths: pathParams,
+    paths: getPostsPaths().map((path) => ({
+      params: {
+        slug: path,
+      },
+    })),
     fallback: false,
   };
 }
@@ -30,6 +26,7 @@ export function getStaticProps({ params: { slug } }) {
     props: {
       post,
     },
+    revalidate: 600,
   };
 }
 

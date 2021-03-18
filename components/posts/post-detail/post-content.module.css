@@ -19,6 +19,20 @@
   max-width: 600px;
 }
 
+.content a {
+  color: var(--color-primary-700);
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  font-family: 'Roboto Slab';
+  font-weight: 300;
+}
+
 @media (min-width: 768px) {
   .content {
     padding: var(--size-8);
