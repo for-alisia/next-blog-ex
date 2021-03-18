@@ -28,3 +28,13 @@ export function getFeaturedPosts() {
 
   return allPosts.filter((post) => post.isFeatured);
 }
+
+export function getPostBySlug(slug) {
+  return getPostData(`${slug}.md`);
+}
+
+export function getPostsPaths() {
+  const postFiles = fs.readdirSync(postsDir);
+
+  return postFiles.map((file) => file.replace(/\.md$/, ''));
+}
