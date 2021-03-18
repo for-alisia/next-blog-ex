@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto&family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Slab:wght@200;300;400;500;600&display=swap');
 
 html,
 body {
@@ -16,7 +16,7 @@ a {
 }
 
 body {
-  --color-grey-50: hsl(265, 55%, 96%);
+  --color-grey-50: hsl(264, 45%, 98%);
   --color-grey-100: hsl(265, 19%, 88%);
   --color-grey-200: hsl(265, 7%, 70%);
   --color-grey-300: hsl(265, 6%, 66%);
@@ -25,7 +25,7 @@ body {
   --color-grey-600: hsl(265, 4%, 42%);
   --color-grey-700: hsl(265, 4%, 31%);
   --color-grey-800: hsl(276, 5%, 20%);
-  --color-grey-900: hsl(280, 5%, 13%);
+  --color-grey-900: hsl(300, 2%, 8%);
 
   --color-primary-50: #c8b3ce;
   --color-primary-100: #a07aaa;
@@ -49,20 +49,24 @@ body {
   --size-5: 1.25rem;
   --size-6: 1.5rem;
   --size-8: 2rem;
+  --size-10: 2.5rem;
+  --size-12: 3rem;
+  --size-14: 3.5rem;
   --size-16: 4rem;
   --size-20: 5rem;
+  --size-30: 7.5rem;
   --size-40: 10rem;
 
   margin: 0;
-  background-color: var(--color-grey-500);
-  color: #252525;
-  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-grey-50);
+  color: var(--color-grey-900);
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Oswald', 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
 }
 
 a {
@@ -72,4 +76,9 @@ a {
 button {
   font: inherit;
   cursor: pointer;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
 }

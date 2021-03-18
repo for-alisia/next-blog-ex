@@ -1,13 +1,16 @@
 // @ts-nocheck
 
+/** Components */
+import PostsGrid from '../posts/posts-grid';
 /** Styles */
 import classes from './featured-posts.module.css';
 
-const FeaturedPosts = () => {
+const FeaturedPosts = ({ posts }) => {
   return (
-    <div>
-      <h1>Featured posts here</h1>
-    </div>
+    <section className={classes.latest}>
+      <h2>Featured Posts</h2>
+      <PostsGrid posts={posts} />
+    </section>
   );
 };
 
