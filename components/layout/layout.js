@@ -6,7 +6,6 @@ const Layout = ({ children }) => {
     <>
       <MainNavigation />
       <main>{children}</main>
-      <div id="notifications"></div>
     </>
   );
 };
