@@ -34,3 +34,4 @@ yarn-error.log*
 .vercel
 
 mongo.credentials.js
+next.config.js

@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb';
-import { user, password } from '../../mongo.credentials';
 
 export default async function (req, res) {
   if (req.method === 'POST') {
@@ -29,7 +28,7 @@ export default async function (req, res) {
 
     try {
       client = await MongoClient.connect(
-        `mongodb+srv://${user}:${password}@clustertest.zi0j3.mongodb.net/nextBlog?retryWrites=true&w=majority`
+        `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.zi0j3.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`
       );
     } catch (err) {
       res.status(500).json({ message: 'Could not connect to database' });
