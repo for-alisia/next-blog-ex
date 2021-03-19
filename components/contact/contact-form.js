@@ -1,6 +1,6 @@
 // @ts-nocheck
 /** Dependencies */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /** Components */
 import Notification from '../ui/notification';
@@ -13,6 +13,19 @@ const ContactForm = () => {
   const [status, setStatus] = useState();
   const [notification, setNotification] = useState();
 
+  useEffect(() => {
+    let timer;
+    if (status === 'success' || status === 'error') {
+      timer = setTimeout(() => {
+        setStatus(null);
+      }, 3000);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [status]);
+
   const inputChangeHandler = (e) => {
     setInput((oldInput) => ({ ...oldInput, [e.target.name]: e.target.value }));
   };
@@ -21,7 +34,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     setStatus('pending');
-    setNotification({ title: 'Sending a message', message: 'Loading...' });
+    setNotification({ title: 'Sending a message', message: 'Sending a message...' });
 
     try {
       const res = await fetch('/api/contact', {
@@ -37,24 +50,14 @@ const ContactForm = () => {
       if (!res.ok) {
         throw new Error(data.message || 'Something went wrong');
       }
-      console.log(data);
 
       setStatus('success');
       setNotification({ title: 'Sending a message', message: 'Message were successfully send' });
 
-      setTimeout(() => {
-        setStatus(null);
-      }, 3000);
-
       setInput({ email: '', name: '', message: '' });
     } catch (err) {
-      console.log(err.message);
       setStatus('error');
       setNotification({ title: 'Sending a message', message: 'Error: sending failed' });
-
-      setTimeout(() => {
-        setStatus(null);
-      }, 3000);
     }
   };
 
